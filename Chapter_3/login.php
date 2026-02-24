@@ -3,12 +3,14 @@ session_start();
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $nom = trim($_POST['nom']);
-    if (!empty($nom)) {
-        $_SESSION['utilisateur'] = $nom;
+
+    if (!empty($nom) ) {
+        $_SESSION['utilisateur'] = $nom ;
+   
         header('Location: profil.php');
         exit;
     } else {
-        $message = "Veuillez entrer votre nom.";
+        $message = "Veuillez entrer votre nom .";
     }
 }
 ?>
@@ -24,6 +26,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <form method="POST">
         <label>Nom :</label>
         <input type="text" name="nom">
+        <br>
+        <br>
         <button type="submit">Se connecter</button>
     </form>
     <?php if (!empty($message))
